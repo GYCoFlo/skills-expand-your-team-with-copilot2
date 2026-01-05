@@ -474,8 +474,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function to generate share URLs for social media
   function generateShareUrls(activityName, description, schedule) {
-    const pageUrl = encodeURIComponent(window.location.href);
-    const shareText = encodeURIComponent(`Check out ${activityName} at Mergington High School! ${description} - ${schedule}`);
+    // Use a clean base URL without query parameters
+    const baseUrl = window.location.origin + window.location.pathname;
+    const pageUrl = encodeURIComponent(baseUrl);
+    
+    // Truncate description to keep share text concise (max 150 chars for description)
+    const truncatedDesc = description.length > 150 
+      ? description.substring(0, 147) + '...' 
+      : description;
+    
+    const shareText = encodeURIComponent(`Check out ${activityName} at Mergington High School! ${truncatedDesc} - ${schedule}`);
     const shareTitle = encodeURIComponent(activityName);
     
     return {
@@ -553,7 +561,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <span class="share-icon">f</span>
         </button>
         <button class="share-button twitter" data-platform="twitter" title="Share on Twitter/X">
-          <span class="share-icon">𝕏</span>
+          <span class="share-icon">X</span>
         </button>
         <button class="share-button linkedin" data-platform="linkedin" title="Share on LinkedIn">
           <span class="share-icon">in</span>
