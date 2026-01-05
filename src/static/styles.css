@@ -719,8 +719,18 @@ footer {
   display: flex;
   align-items: center;
   gap: 5px;
+  border: none;
 }
 
 #dark-mode-toggle:hover {
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Dark mode specific styling for toggle button */
+body.dark-mode #dark-mode-toggle {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode #dark-mode-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.25);
 }

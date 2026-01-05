@@ -36,11 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateDarkModeButton(isDarkMode);
     
     // Save preference
-    if (isDarkMode) {
-      localStorage.setItem("darkMode", "enabled");
-    } else {
-      localStorage.setItem("darkMode", "disabled");
-    }
+    localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
   }
 
   // Add click event listener
